@@ -1,0 +1,76 @@
+2026-11-24 13:58:46,847 -  nornir.core -     INFO -        run() - Running task 'check_interfaces' with args {} on 1 hosts
+2026-11-24 15:36:12,221 -  nornir.core -     INFO -        run() - Running task 'config_svi' with args {} on 1 hosts
+2026-11-24 15:36:14,146 - nornir.core.task -    ERROR -      start() - Host 'nairobi-hq-core1-sw': task 'config_svi' failed
+Traceback (most recent call last):
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir/core/task.py", line 112, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/nornir_graphql_inventory_scrapli_netconf.py", line 172, in config_svi
+    conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 600, in get_connection
+    self.open_connection(
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 654, in open_connection
+    conn_obj.open(
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir_scrapli/connection.py", line 264, in open
+    connection.open()
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli_netconf/driver/sync_driver.py", line 118, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli/decorators.py", line 224, in decorate
+    return _multiprocessing_timeout(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli/decorators.py", line 115, in _multiprocessing_timeout
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli_netconf/channel/sync_channel.py", line 108, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli/channel/base_channel.py", line 481, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+2026-11-24 15:40:12,440 -  nornir.core -     INFO -        run() - Running task 'config_svi' with args {} on 1 hosts
+2026-11-24 15:40:14,592 - nornir.core.task -    ERROR -      start() - Host 'nairobi-hq-core1-sw': task 'config_svi' failed
+Traceback (most recent call last):
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir/core/task.py", line 112, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/nornir_graphql_inventory_scrapli_netconf.py", line 182, in config_svi
+    conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 600, in get_connection
+    self.open_connection(
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 654, in open_connection
+    conn_obj.open(
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/nornir_scrapli/connection.py", line 264, in open
+    connection.open()
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli_netconf/driver/sync_driver.py", line 118, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli/decorators.py", line 224, in decorate
+    return _multiprocessing_timeout(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli/decorators.py", line 115, in _multiprocessing_timeout
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli_netconf/channel/sync_channel.py", line 108, in channel_authenticate_netconf
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/yusuf/xyz/.venv/lib/python3.12/site-packages/scrapli/channel/base_channel.py", line 481, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+2026-11-24 15:44:30,974 -  nornir.core -     INFO -        run() - Running task 'config_svi' with args {} on 1 hosts
+2026-11-24 16:53:37,417 -  nornir.core -     INFO -        run() - Running task 'config_svi' with args {} on 1 hosts
+2026-11-24 16:53:44,969 -  nornir.core -  WARNING -        run() - Task 'rollback' has not been run – 0 hosts selected
