@@ -278,3 +278,53 @@ else:
     nr.filter(lambda h: h.name in ok_hosts).run(task=confirm_commit)
 
 print_result(results)
+
+
+
+# (for scalabiity and handling multiple groups, you can use the following approach(grouping by platform and role) to run tasks and handle commit/rollback logic. Uncomment and modify as needed.)
+# --- 1. Group and Run ---
+#ios_core_devices = nr.filter(platform="cisco_ios", role="core")
+#nxos_access_devices = nr.filter(platform="cisco_nxos", role="access")
+
+# Dictionary to hold all results for the end summary
+#all_results = {}
+
+# Run IOS Core
+#if len(ios_core_devices.inventory.hosts) > 0:
+ #   print(f"Running config_svi_ios_core on {len(ios_core_devices.inventory.hosts)} devices...")
+  #  res_ios = ios_core_devices.run(task=config_svi_ios_core)
+   # all_results.update(res_ios)
+
+# Run NXOS Access
+#if len(nxos_access_devices.inventory.hosts) > 0:
+ #   print(f"Running config_svi_nxos_access on {len(nxos_access_devices.inventory.hosts)} devices...")
+  #  res_nxos = nxos_access_devices.run(task=config_svi_nxos_access)
+   # all_results.update(res_nxos)
+
+
+# --- 2. Evaluate and Commit/Rollback ---
+# Check if ANY device across ALL groups failed
+#has_failures = any(multi.failed for multi in all_results.values())
+
+#if has_failures:
+ #   print("❌ Failure detected in at least one group. Initiating global rollback...")
+    
+    # Rollback only the groups that actually ran
+  #  if len(ios_core_devices.inventory.hosts) > 0:
+   #     ios_core_devices.run(task=rollback)
+        
+    #if len(nxos_access_devices.inventory.hosts) > 0:
+     #   nxos_access_devices.run(task=rollback)
+        
+#else:
+ #   print("✅ All groups staged successfully. Confirming commits...")
+    
+    # Confirm commits for the groups that ran
+  #  if len(ios_core_devices.inventory.hosts) > 0:
+   #     ios_core_devices.run(task=confirm_commit)
+        
+    #if len(nxos_access_devices.inventory.hosts) > 0:
+     #   nxos_access_devices.run(task=confirm_commit)
+
+# Print the results
+#print_result(all_results)
